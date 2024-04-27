@@ -1,5 +1,5 @@
 import BrowseJobs from "./components/BrowseJobs";
-import Developers from "./components/Developers";
+import HomeCards from "./components/HomeCards";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -8,7 +8,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <Developers />
+      <HomeCards />
       <BrowseJobs />
       <section className="m-auto max-w-lg my-10 px-6">
         <a
