@@ -1,13 +1,33 @@
+import { useState } from "react";
+
 /* eslint-disable react/prop-types */
 const JobList = ({ j }) => {
+  const [showFullDesc, setShowFullDesc] = useState(false);
+
+  let desc = j.description;
+
+  if (!showFullDesc) {
+    desc = desc.substring(0, 90) + "...";
+  }
+
+  const onhandleClick = () => {
+    setShowFullDesc(!showFullDesc);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-md relative">
       <div className="p-4">
         <div className="mb-6">
-          <div className="text-gray-600 my-2">Full-Time</div>
+          <div className="text-gray-600 my-2">{j.type}</div>
           <h3 className="text-xl font-bold">{j.title}</h3>
         </div>
-        <div className="mb-5">{j.description}</div>
+        <div className="mb-5">{desc}</div>
+        <button
+          onClick={onhandleClick}
+          className="text-indigo-500 mb-5 hover:text-indigo-600"
+        >
+          {showFullDesc ? "More" : "Less"}
+        </button>
         <h3 className="text-indigo-500 mb-2">{j.salary}</h3>
         <div className="border border-gray-100 mb-5"></div>
         <div className="flex flex-col lg:flex-row justify-between mb-4">
